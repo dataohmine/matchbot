@@ -20,7 +20,7 @@ vectorstore = FAISS.load_local(VECTORSTORE_PATH, embeddings, allow_dangerous_des
 retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 20})
 
 # Input user query
-query = "Looking for CEOs with PE experience in software who have driven revenue growth and exits."
+query = "Looking for executives in software who have driven revenue growth and exits."
 
 # Retrieve top candidates
 retrieved_docs = retriever.invoke(query)
