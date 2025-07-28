@@ -9,9 +9,9 @@ from langchain_community.vectorstores import FAISS
 from scoring_engine import score_candidate
 
 # Load env for OpenAI key
-load_dotenv('api.env')
+load_dotenv()
 
-VECTORSTORE_PATH = r"c:\users\chica\1_Projects\4_GenAI\8_RAG\vectorstore"
+VECTORSTORE_PATH = r"your vectorstore location"
 
 # Load vectorstore + retriever
 embedding_model_name = "sentence-transformers/all-MiniLM-L6-v2"
