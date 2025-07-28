@@ -8,8 +8,8 @@ from langchain.schema import Document
 from flatten_resume import flatten_resume
 
 # Input directory of enriched JSON resumes
-DATA_DIR = r"c:\users\chica\1_Projects\4_GenAI\3_Resume_Parser\parsed_output"
-VECTORSTORE_PATH = r"c:\users\chica\1_Projects\4_GenAI\8_RAG\vectorstore"
+DATA_DIR = r"your data directory"
+VECTORSTORE_PATH = r"your vectorstore location"
 
 # Load embedding model
 embedding_model_name = "sentence-transformers/all-MiniLM-L6-v2"
