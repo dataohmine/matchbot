@@ -67,9 +67,9 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 #         allow_dangerous_deserialization=True
 #     )
 #     retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-#     st.success("✅ FAISS vectorstore loaded!")
+#     st.success(" FAISS vectorstore loaded!")
 # except Exception as e:
-#     st.error(f"❌ Failed loading vectorstore: {e}")
+#     st.error(f" Failed loading vectorstore: {e}")
 #     st.stop()
 
 
@@ -78,7 +78,7 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 # ───────────────────────────────────────────────────────────
 
 ranking_prompt_template = """
-You are an expert Private Equity evaluator. Your task is to assess a candidate for a CEO/Operator role in a PE-backed business.
+You are an expert candidate evaluator. Your task is to assess a candidate for a CEO/Operator role in a PE-backed business.
 
 Here is the hiring query:
 
@@ -92,11 +92,10 @@ Evaluate the following selection criteria strictly from the data provided:
 
 1. **Industry Experience**: Hands-on experience in the target industry? List companies, years, sector relevance.  
 2. **Leadership Experience**: Held CEO, President, or Division Head roles? Note P&L size, team scale, executive altitude.  
-3. **Track Record of Success**: Evidence of revenue/EBITDA growth, successful exits or turnarounds? Quantifiable metrics.  
-4. **Private Equity Experience**: Worked at or with PE-backed firms? Include board/reporting familiarity.  
-5. **Functional Expertise**: Strong skills in key functions (Sales, Marketing, Finance, Tech, Ops)?  
-6. **Company Size Experience**: Managed businesses at a scale similar to typical PE investments?  
-7. **Tenure & Stability**: Demonstrated sufficient tenure and stability across roles?
+3. **Track Record of Success**: Evidence of revenue/EBITDA growth, successful exits or turnarounds? Quantifiable metrics.   
+4. **Functional Expertise**: Strong skills in key functions (Sales, Marketing, Finance, Tech, Ops)?  
+5. **Company Size Experience**: Managed businesses at a scale similar to typical PE investments?  
+6. **Tenure & Stability**: Demonstrated sufficient tenure and stability across roles?
 
 **Strict JSON output** (no extra text):
 
@@ -107,7 +106,6 @@ Evaluate the following selection criteria strictly from the data provided:
   "IndustryExperience": "<Yes/No + 1-line reasoning>",
   "LeadershipExperience": "<Yes/No + 1-line reasoning>",
   "TrackRecordOfSuccess": "<Yes/No + 1-line reasoning>",
-  "PrivateEquityExperience": "<Yes/No + 1-line reasoning>",
   "FunctionalExpertise": "<Yes/No + 1-line reasoning>",
   "CompanySizeExperience": "<Yes/No + 1-line reasoning>",
   "TenureStability": "<Yes/No + 1-line reasoning>",
@@ -146,7 +144,6 @@ def parse_candidate(content: str) -> dict | None:
             "IndustryExperience":       result.get("IndustryExperience", ""),
             "LeadershipExperience":     result.get("LeadershipExperience", ""),
             "TrackRecordOfSuccess":     result.get("TrackRecordOfSuccess", ""),
-            "PrivateEquityExperience":  result.get("PrivateEquityExperience", ""),
             "FunctionalExpertise":      result.get("FunctionalExpertise", ""),
             "CompanySizeExperience":    result.get("CompanySizeExperience", ""),
             "TenureStability":          result.get("TenureStability", ""),
