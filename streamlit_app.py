@@ -2,7 +2,7 @@
 # 0) Page config must be first
 # ───────────────────────────────────────────────────────────
 import streamlit as st
-st.set_page_config(page_title="PE Operator Finder", layout="wide")
+st.set_page_config(page_title="Candidate Finder", layout="wide")
 
 # ───────────────────────────────────────────────────────────
 # 1) Core imports
@@ -29,7 +29,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # 2) Load API key
 # ───────────────────────────────────────────────────────────
 # comment out load_dotenv() if you're using Streamlit Secrets only
-load_dotenv("api.env")  
+load_dotenv()  
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     st.error("🔑 Please set OPENAI_API_KEY in Streamlit Secrets or api.env/.env")
