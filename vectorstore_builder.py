@@ -28,4 +28,4 @@ for filename in os.listdir(DATA_DIR):
 vectorstore = FAISS.from_documents(documents, embeddings)
 vectorstore.save_local(VECTORSTORE_PATH)
 
-print("✅ Vectorstore built and saved.")
+print("Vectorstore built and saved.")
