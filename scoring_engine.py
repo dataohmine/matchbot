@@ -9,7 +9,7 @@ llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
 # Extractive prompt
 ranking_prompt_template = """
-You are an expert Private Equity evaluator.
+You are an expert candidate evaluator.
 
 You are given a candidate's resume data (flattened text below). Use only the provided data. Do not assume or invent any information.
 
